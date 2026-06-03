@@ -28,8 +28,8 @@ public class Venta {
     @Column(name = "FECHA", nullable = false)
     private LocalDate fecha;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "SUCURSAL", nullable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "ID_SUCURSAL", nullable = false)
     private Sucursal sucursal;
 
     @OneToMany(mappedBy = "venta", cascade = CascadeType.ALL,

@@ -18,18 +18,18 @@ public class DetalleVenta {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_VENTA", nullable = false)
     private Venta venta;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "ID_PRODUCTO", nullable = false)
     private Producto producto;
 
-    @JoinColumn(name = "CANTIDAD_PRODUCTO", nullable = false)
+    @Column(name = "CANTIDAD_PRODUCTO", nullable = false)
     private Integer cantidadProducto;
 
-    @JoinColumn(name = "PRECIO_PRODUCTO", nullable = false)
+    @Column(name = "PRECIO_PRODUCTO", nullable = false)
     private BigDecimal precioProducto;
 
     public BigDecimal calcularSubtotal() {

@@ -10,9 +10,8 @@ import org.springframework.stereotype.Service;
 @Slf4j
 @Service
 @AllArgsConstructor
-@NoArgsConstructor
 @Transactional
-public class VentaServiceImpl {
+public class VentaServiceImpl implements VentaService{
 
-    private VentaRepository ventaRepository;
+    private final VentaRepository ventaRepository;
 }

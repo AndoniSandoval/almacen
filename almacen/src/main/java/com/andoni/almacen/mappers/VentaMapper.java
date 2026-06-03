@@ -1,9 +1,23 @@
 package com.andoni.almacen.mappers;
 
+import com.andoni.almacen.dto.ventas.DetalleVentaResponse;
+import com.andoni.almacen.dto.ventas.VentaResponse;
+import com.andoni.almacen.entities.DetalleVenta;
+import com.andoni.almacen.entities.Venta;
+import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Component;
 
-import com.andoni.almacen.dto.ventas.VentaRequest;
-
+@Component
+@AllArgsConstructor
 public class VentaMapper {
 
-    public Venta requestAEntidad(VentaRequest request, )
+    private final SucursalMapper sucursalMapper;
+
+    public VentaResponse entidadAResponse (Venta venta){
+        return null;
+    }
+
+    public DetalleVentaResponse detalleAResponse (DetalleVenta detalle) {
+        return null;
+    }
 }

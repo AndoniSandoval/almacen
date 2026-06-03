@@ -12,7 +12,7 @@ import java.util.Objects;
 public enum EstadoVenta {
 
     REGISTRADA("Registrada", 1L),
-    CANCELADA("Canceladad", 0L);
+    CANCELADA("Cancelada", 0L);
 
     private final String descripcion;
 
