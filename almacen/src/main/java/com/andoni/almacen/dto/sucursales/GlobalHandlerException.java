@@ -14,7 +14,7 @@ import java.util.NoSuchElementException;
 
 @RestControllerAdvice
 @Slf4j
-public class GlobalHanldlerException {
+public class GlobalHandlerException {
     @ExceptionHandler(IllegalArgumentException.class)
     public ResponseEntity<CustomErrorResponse>handleIllegalArgumentException(IllegalArgumentException e) {
         log.error("Error en la peticion {}", e.getMessage());

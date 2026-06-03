@@ -84,14 +84,15 @@ public class ProductoServiceImpl implements ProductoService {
 
         productoRespository.delete(producto);
 
-        log.info("Eliminando producto con id", id);
+        log.info("Eliminando producto con id: {}", id);
 
     }
 
     private Producto obtenerProductoException(Long id) {
-        log.info("Buscando producto por id: ", id);
+        log.info("Buscando producto por id: {} ", id);
         return productoRespository
                 .findById(id)
-                .orElseThrow(() -> new RecursoNoEncontradoException("Producto es encontrado con id:" + id));
+                .orElseThrow(() -> new RecursoNoEncontradoException(
+                        "Producto no encontrado con id:" + id));
     }
 }

@@ -53,7 +53,7 @@ public class Producto {
     }
 
     private void validarDatos(String nombre, String categoria, BigDecimal precio, Integer cantidad){
-        StringCustomUtils.validarTamanio(nombre, 5,55, "El nombre es requerido y debe tener entre 5 y 50 caracteres");
+        StringCustomUtils.validarTamanio(nombre, 5,55, "El nombre es requerido y debe tener entre 5 y 55 caracteres");
 
         if (categoria == null)
             throw new IllegalArgumentException("La Cateoria es requerida");

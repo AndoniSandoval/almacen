@@ -4,8 +4,9 @@ import com.andoni.almacen.dto.productos.ProductoRequest;
 import com.andoni.almacen.dto.productos.ProductoResponse;
 import com.andoni.almacen.entities.Producto;
 import com.andoni.almacen.enums.Categoria;
+import org.springframework.stereotype.Component;
 
-
+@Component
 public class ProductoMapper {
     public Producto requestAEntidad(ProductoRequest request, Categoria categoria){
         if (request == null)return null;

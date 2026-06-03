@@ -26,6 +26,8 @@ public enum Categoria {
                 return categoria;
             }
         }
-        throw new RecursoNoEncontradoException("No existe una categoria con la descripcion: " + descripcion);
+        throw new IllegalArgumentException(
+                "No existe una categoría con la descripción: " + descripcion
+        );
     }
 }
