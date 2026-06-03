@@ -1,5 +1,6 @@
 package com.andoni.almacen.entities;
 
+import com.andoni.almacen.enums.Categoria;
 import com.andoni.almacen.utils.StringCustomUtils;
 import jakarta.persistence.*;
 import lombok.*;
@@ -22,9 +23,9 @@ public class Producto {
     @Column(name = "NOMBRE", length = 50, nullable = false)
     private String nombre;
 
-    @Column(name = "CATEGORIA", nullable = false)
+    @Column(name = "CATEGORIA", length = 20, nullable = false)
     @Enumerated(EnumType.STRING)
-    private String categoria;
+    private Categoria categoria;
 
     @Column(name = "PRECIO", nullable = false)
     private BigDecimal precio;
@@ -44,7 +45,7 @@ public class Producto {
         this.cantidad -= cantidad;
     }
 
-    public void actualizar(String nombre, String categoria, BigDecimal precio, Integer cantidad) {
+    public void actualizar(String nombre, Categoria categoria, BigDecimal precio, Integer cantidad) {
         this.nombre = nombre.trim();
         this.categoria = categoria;
         this.precio = precio;
