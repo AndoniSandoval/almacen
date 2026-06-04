@@ -2,6 +2,8 @@ package com.andoni.almacen.service;
 
 import com.andoni.almacen.dto.ventas.VentaRequest;
 import com.andoni.almacen.dto.ventas.VentaResponse;
+import com.andoni.almacen.enums.EstadoVenta;
+import com.andoni.almacen.mappers.VentaMapper;
 import com.andoni.almacen.repositories.VentaRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -19,9 +21,17 @@ public class VentaServiceImpl implements VentaService{
 
     private final VentaRepository ventaRepository;
 
+    private final VentaMapper ventaMapper;
+
     @Override
     public List<VentaResponse> listar() {
-        throw new UnsupportedOperationException("Pendiente implementar");
+        log.info("Listando ventas registradas");
+
+        return ventaRepository
+                .findByEstadoVenta(EstadoVenta.REGISTRADA)
+                .stream()
+                .map(ventaMapper::entidadAResponse)
+                .toList();
     }
 
     @Override
