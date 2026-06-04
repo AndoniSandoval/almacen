@@ -42,7 +42,14 @@ public class SucursalServiceImplemt implements SucursalService{
         log.info("Registrando Nueva Sucursal");
 
         validarDatosUnicos(request);
-        return null;
+
+        Sucursal sucursal = sucursalMapper.requestAEntidad(request);
+
+        Sucursal sucursalGuardada = sucursalRepository.save(sucursal);
+
+        log.info("Sucursal registrada con id {}", sucursalGuardada.getId());
+
+        return sucursalMapper.entidadAResponse(sucursalGuardada);
     }
 
     @Override

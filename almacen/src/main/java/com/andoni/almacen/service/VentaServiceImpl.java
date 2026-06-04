@@ -31,7 +31,7 @@ public class VentaServiceImpl implements VentaService{
 
     @Override
     public VentaResponse registrar(VentaRequest request) {
-        throw new UnsupportedOperationException("Pendiente implementar");
+        throw new UnsupportedOperationException("Pendiente implementar REGISTRO");
     }
 
     @Override
