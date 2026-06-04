@@ -11,7 +11,9 @@ import java.util.Optional;
 @Repository
 public interface VentaRepository extends JpaRepository<Venta, Long>
 {
-    List<Venta> findByEstadoVenta(EstadoVenta estadoVenta);
+    List<Venta> findByEstadoVenta(
+            EstadoVenta estadoVenta
+    );
 
     //Listar solamente REGISTRADAS
     //Obtener por id solamente REGISTRADS
