@@ -77,18 +77,24 @@ public class SucursalServiceImplemt implements SucursalService{
 
     private Sucursal obtenerSucursalException(Long id){
         log.info("Buscando sucursal con id: {}", id);
-        return sucursalRepository.findById(id).orElseThrow(() ->
+        return sucursalRepository
+                .findById(id)
+                .orElseThrow(() ->
                 new RecursoNoEncontradoException("Recurso no encontrado con id: " + id));
     }
 
     private void validarDatosUnicos(SucursalRequest request){
-        if (sucursalRepository.existsByNombreIgnoreCase(request.nombre().trim()))
+        if (sucursalRepository.existsByNombreIgnoreCase(request
+                .nombre()
+                .trim()))
             throw new IllegalArgumentException("Ya existe una sucursal con el nonbre de: " + request.nombre());
     }
 
     private void validarCambiosUnicos(SucursalRequest request, Long id){
         log.info("Validando cambio en nombre unico...");
-        if (sucursalRepository.existsByNombreIgnoreCaseAndIdNot(request.nombre().trim(), id))
+        if (sucursalRepository.existsByNombreIgnoreCaseAndIdNot(
+                request.nombre()
+                        .trim(), id))
             throw new IllegalArgumentException("Ya existe una sucursal con el nonbre de: " + request.nombre());
     }
 }

@@ -2,7 +2,9 @@ package com.andoni.almacen.service;
 
 import com.andoni.almacen.dto.ventas.VentaRequest;
 import com.andoni.almacen.dto.ventas.VentaResponse;
+import com.andoni.almacen.entities.Venta;
 import com.andoni.almacen.enums.EstadoVenta;
+import com.andoni.almacen.exceptions.RecursoNoEncontradoException;
 import com.andoni.almacen.mappers.VentaMapper;
 import com.andoni.almacen.repositories.VentaRepository;
 import jakarta.transaction.Transactional;
@@ -36,7 +38,16 @@ public class VentaServiceImpl implements VentaService{
 
     @Override
     public VentaResponse obtenerPorId(Long id) {
-        throw new UnsupportedOperationException("Pendiente implementar");
+        log.info("Obteniendo por id: {}", id);
+
+        Venta venta = ventaRepository.findByIdAndEstadoVenta(
+                id,
+                EstadoVenta.REGISTRADA
+        ).orElseThrow(() ->
+                new RecursoNoEncontradoException("Recurso no encontrado con id: " + id)
+        );
+
+        return ventaMapper.entidadAResponse(venta);
     }
 
     @Override
