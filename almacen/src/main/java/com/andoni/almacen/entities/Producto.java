@@ -23,6 +23,8 @@ public class Producto {
     @Column(name = "NOMBRE", length = 50, nullable = false)
     private String nombre;
 
+
+
     @Column(name = "CATEGORIA", length = 20, nullable = false)
     @Enumerated(EnumType.STRING)
     private Categoria categoria;
